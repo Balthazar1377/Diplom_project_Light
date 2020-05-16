@@ -1,4 +1,5 @@
-const popUpCall = () => {
+const popUp = () => {
+    //popUpCall
     const popUpCall = document.querySelector('.popup-call'),
         inputs = popUpCall.querySelectorAll('input');
 
@@ -22,7 +23,4 @@ const popUpCall = () => {
     });
 
 };
-
-//Настроить ошибку при закрытии окна с помощью кнопки крестик
-
-export default popUpCall;
+export default popUp;
