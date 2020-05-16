@@ -1,13 +1,12 @@
-const popUp = () => {
-    //popUpCall
+const popUpCall = () => {
     const popUpCall = document.querySelector('.popup-call'),
-        inputs = popUpCall.querySelectorAll('input');
+        inputsCall = popUpCall.querySelectorAll('input');
 
     document.body.addEventListener('click', event => {
         const target = event.target;
         if(target.closest('.call-btn')){
            popUpCall.style.display = 'block';
-           inputs.forEach(elem => {
+           inputsCall.forEach(elem => {
                elem.toggleAttribute('required');
            });
         }
@@ -16,11 +15,10 @@ const popUp = () => {
         const target = event.target;
         if(target.closest('.popup-close') || !target.closest('.popup-content')){
             popUpCall.style.display = 'none';
-            inputs.forEach(elem => {
+            inputsCall.forEach(elem => {
                 elem.toggleAttribute('required');
             });
         }
     });
-
 };
-export default popUp;
+export default popUpCall;
