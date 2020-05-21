@@ -2,9 +2,16 @@ const popUpConsult = () => {
     const popUpConsult = document.querySelector('.popup-consultation'),
         inputsConsult = popUpConsult.querySelectorAll('input'),
         form = popUpConsult.querySelector('form'),
+        name = document.getElementById('name_13'),
+        phone = document.getElementById('phone_13'),
         directorForm = document.querySelector('.director-form'),
-        captureFormBtn = document.querySelector('.capture-form-btn'),
         inputValue = directorForm.querySelector('input');
+    name.addEventListener('input', () => {
+        name.value = name.value.replace(/[^а-я]/ig, '');
+    });
+    phone.addEventListener('input', () => {
+        phone.value = phone.value.replace(/[^+\d]/g, '');
+    });
     document.addEventListener('click', event => {
         const target = event.target;
         if(target.closest('.consultation-btn')){
