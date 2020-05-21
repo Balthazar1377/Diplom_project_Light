@@ -3,25 +3,19 @@ const popUpConsult = () => {
         inputsConsult = popUpConsult.querySelectorAll('input'),
         form = popUpConsult.querySelector('form'),
         directorForm = document.querySelector('.director-form'),
+        captureFormBtn = document.querySelector('.capture-form-btn'),
         inputValue = directorForm.querySelector('input');
-
     document.addEventListener('click', event => {
         const target = event.target;
         if(target.closest('.consultation-btn')){
             event.preventDefault();
             popUpConsult.style.display = 'block';
-            inputsConsult.forEach(elem => {
-                elem.toggleAttribute('required');
-            });
         }
     });
     popUpConsult.addEventListener('click', event => {
         const target = event.target;
         if(target.closest('.popup-close') || !target.closest('.popup-content')){
             popUpConsult.style.display = 'none';
-            inputsConsult.forEach(elem => {
-                elem.toggleAttribute('required');
-            });
         }
     });
     form.addEventListener('submit', event => {
@@ -36,6 +30,11 @@ const popUpConsult = () => {
             body[key] = value;
         });
         request.send(JSON.stringify(body));
+        inputValue.value = '';
+        inputsConsult.forEach(elem => {
+            elem.value = '';
+        });
+        
     });
     
 };

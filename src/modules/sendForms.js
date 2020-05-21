@@ -20,8 +20,10 @@ const sendForms = () => {
             }
             if(request.status === 200) {
                 statusMessage.textContent = successMessage;
+                inputMain.value = '';
             } else {
                 statusMessage.textContent = errorMessage;
+                inputMain.value = '';
             }
         });
         request.open('POST', './server.php');
@@ -57,8 +59,12 @@ const sendForms = () => {
             }
             if(request.status === 200) {
                 statusMessage.textContent = successMessage;
+                name.value = '';
+                phone.value = '';
             } else {
                 statusMessage.textContent = errorMessage;
+                name.value = '';
+                phone.value = ''; 
             }
         });
         request.open('POST', './server.php');
